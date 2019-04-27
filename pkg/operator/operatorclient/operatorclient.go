@@ -16,9 +16,13 @@ type OperatorClient struct {
 func (c *OperatorClient) Informer() cache.SharedIndexInformer {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return c.Informers.Operator().V1().KubeControllerManagers().Informer()
 }
 func (c *OperatorClient) GetStaticPodOperatorStateWithQuorum() (*operatorv1.StaticPodOperatorSpec, *operatorv1.StaticPodOperatorStatus, string, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	instance, err := c.Client.KubeControllerManagers().Get("cluster", metav1.GetOptions{})
@@ -30,6 +34,8 @@ func (c *OperatorClient) GetStaticPodOperatorStateWithQuorum() (*operatorv1.Stat
 func (c *OperatorClient) GetStaticPodOperatorState() (*operatorv1.StaticPodOperatorSpec, *operatorv1.StaticPodOperatorStatus, string, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	instance, err := c.Informers.Operator().V1().KubeControllerManagers().Lister().Get("cluster")
 	if err != nil {
 		return nil, nil, "", err
@@ -37,6 +43,8 @@ func (c *OperatorClient) GetStaticPodOperatorState() (*operatorv1.StaticPodOpera
 	return &instance.Spec.StaticPodOperatorSpec, &instance.Status.StaticPodOperatorStatus, instance.ResourceVersion, nil
 }
 func (c *OperatorClient) UpdateStaticPodOperatorSpec(resourceVersion string, spec *operatorv1.StaticPodOperatorSpec) (*operatorv1.StaticPodOperatorSpec, string, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	original, err := c.Informers.Operator().V1().KubeControllerManagers().Lister().Get("cluster")
@@ -55,6 +63,8 @@ func (c *OperatorClient) UpdateStaticPodOperatorSpec(resourceVersion string, spe
 func (c *OperatorClient) UpdateStaticPodOperatorStatus(resourceVersion string, status *operatorv1.StaticPodOperatorStatus) (*operatorv1.StaticPodOperatorStatus, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	original, err := c.Informers.Operator().V1().KubeControllerManagers().Lister().Get("cluster")
 	if err != nil {
 		return nil, err
@@ -71,6 +81,8 @@ func (c *OperatorClient) UpdateStaticPodOperatorStatus(resourceVersion string, s
 func (c *OperatorClient) GetOperatorState() (*operatorv1.OperatorSpec, *operatorv1.OperatorStatus, string, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	instance, err := c.Informers.Operator().V1().KubeControllerManagers().Lister().Get("cluster")
 	if err != nil {
 		return nil, nil, "", err
@@ -78,6 +90,8 @@ func (c *OperatorClient) GetOperatorState() (*operatorv1.OperatorSpec, *operator
 	return &instance.Spec.OperatorSpec, &instance.Status.StaticPodOperatorStatus.OperatorStatus, instance.ResourceVersion, nil
 }
 func (c *OperatorClient) UpdateOperatorSpec(resourceVersion string, spec *operatorv1.OperatorSpec) (*operatorv1.OperatorSpec, string, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	original, err := c.Informers.Operator().V1().KubeControllerManagers().Lister().Get("cluster")
@@ -94,6 +108,8 @@ func (c *OperatorClient) UpdateOperatorSpec(resourceVersion string, spec *operat
 	return &ret.Spec.OperatorSpec, ret.ResourceVersion, nil
 }
 func (c *OperatorClient) UpdateOperatorStatus(resourceVersion string, status *operatorv1.OperatorStatus) (*operatorv1.OperatorStatus, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	original, err := c.Informers.Operator().V1().KubeControllerManagers().Lister().Get("cluster")

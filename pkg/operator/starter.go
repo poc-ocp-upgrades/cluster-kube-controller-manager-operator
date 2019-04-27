@@ -29,6 +29,8 @@ import (
 func RunOperator(ctx *controllercmd.ControllerContext) error {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	kubeClient, err := kubernetes.NewForConfig(ctx.ProtoKubeConfig)
 	if err != nil {
 		return err

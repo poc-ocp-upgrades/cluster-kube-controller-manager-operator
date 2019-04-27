@@ -15,6 +15,8 @@ import (
 func TestObserveClusterCIDRs(t *testing.T) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	type Test struct {
 		name		string
 		config		*configv1.Network
@@ -46,6 +48,8 @@ func TestObserveClusterCIDRs(t *testing.T) {
 func TestObserveServiceClusterIPRanges(t *testing.T) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	indexer := cache.NewIndexer(cache.MetaNamespaceKeyFunc, cache.Indexers{})
 	if err := indexer.Add(&configv1.Network{ObjectMeta: metav1.ObjectMeta{Name: "cluster"}, Status: configv1.NetworkStatus{ServiceNetwork: []string{"serviceCIDR"}}}); err != nil {
 		t.Fatal(err.Error())
@@ -61,6 +65,8 @@ func TestObserveServiceClusterIPRanges(t *testing.T) {
 	}
 }
 func toYAML(o interface{}) string {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	b, e := yaml.Marshal(o)

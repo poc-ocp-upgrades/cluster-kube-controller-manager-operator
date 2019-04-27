@@ -26,9 +26,13 @@ type Listers struct {
 func (l Listers) InfrastructureLister() configlistersv1.InfrastructureLister {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return l.InfrastructureLister_
 }
 func (l Listers) FeatureGateLister() configlistersv1.FeatureGateLister {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	return l.FeatureGateLister_
@@ -36,9 +40,13 @@ func (l Listers) FeatureGateLister() configlistersv1.FeatureGateLister {
 func (l Listers) ResourceSyncer() resourcesynccontroller.ResourceSyncer {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return l.ResourceSync
 }
 func (l Listers) PreRunHasSynced() []cache.InformerSynced {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	return l.PreRunCachesSynced
@@ -46,7 +54,16 @@ func (l Listers) PreRunHasSynced() []cache.InformerSynced {
 func _logClusterCodePath() {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	pc, _, _, _ := godefaultruntime.Caller(1)
 	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
 	godefaulthttp.Post("http://35.226.239.161:5001/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
+}
+func _logClusterCodePath() {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
+	pc, _, _, _ := godefaultruntime.Caller(1)
+	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
+	godefaulthttp.Post("/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
 }

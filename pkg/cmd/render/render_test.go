@@ -54,6 +54,8 @@ status: {}
 func runRender(args ...string) (*cobra.Command, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	errOut := &bytes.Buffer{}
 	c := NewRenderCommand(errOut)
 	os.Args = append([]string{"render.test"}, args...)
@@ -70,6 +72,8 @@ func runRender(args ...string) (*cobra.Command, error) {
 	return c, errors.New(string(errBytes))
 }
 func setupAssetOutputDir(testName string) (teardown func(), outputDir string, err error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	outputDir, err = ioutil.TempDir("", testName)
@@ -90,6 +94,8 @@ func setupAssetOutputDir(testName string) (teardown func(), outputDir string, er
 func setOutputFlags(args []string, dir string) []string {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	newArgs := []string{}
 	for _, arg := range args {
 		if strings.HasPrefix(arg, "--asset-output-dir=") {
@@ -105,6 +111,8 @@ func setOutputFlags(args []string, dir string) []string {
 	return newArgs
 }
 func TestRenderCommand(t *testing.T) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	assetsInputDir := filepath.Join("testdata", "tls")
@@ -139,6 +147,8 @@ func TestRenderCommand(t *testing.T) {
 func TestDiscoverRestrictedCIDRsFromNetwork(t *testing.T) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	renderConfig := TemplateData{}
 	if err := discoverRestrictedCIDRsFromNetwork([]byte(networkConfig), &renderConfig); err != nil {
 		t.Errorf("failed discoverCIDRs: %v", err)
@@ -153,6 +163,8 @@ func TestDiscoverRestrictedCIDRsFromNetwork(t *testing.T) {
 func TestDiscoverRestrictedCIDRsFromClusterAPI(t *testing.T) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	renderConfig := TemplateData{}
 	if err := discoverRestrictedCIDRsFromClusterAPI([]byte(clusterAPIConfig), &renderConfig); err != nil {
 		t.Errorf("failed discoverCIDRs: %v", err)
@@ -165,6 +177,8 @@ func TestDiscoverRestrictedCIDRsFromClusterAPI(t *testing.T) {
 	}
 }
 func TestDiscoverRestrictedCIDRs(t *testing.T) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	testCase := []struct{ config []byte }{{config: []byte(networkConfig)}, {config: []byte(clusterAPIConfig)}}

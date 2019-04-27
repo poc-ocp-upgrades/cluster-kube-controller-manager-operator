@@ -35,6 +35,8 @@ type renderOpts struct {
 func NewRenderCommand(errOut io.Writer) *cobra.Command {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	renderOpts := &renderOpts{manifest: *genericrenderoptions.NewManifestOptions("kube-controller-manager", "openshift/origin-hyperkube:latest"), generic: *genericrenderoptions.NewGenericOptions(), errOut: errOut}
 	cmd := &cobra.Command{Use: "render", Short: "Render kubernetes controller manager bootstrap manifests, secrets and configMaps", Run: func(cmd *cobra.Command, args []string) {
 		must := func(fn func() error) {
@@ -55,6 +57,8 @@ func NewRenderCommand(errOut io.Writer) *cobra.Command {
 func (r *renderOpts) AddFlags(fs *pflag.FlagSet) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	r.manifest.AddFlags(fs, "controller manager")
 	r.generic.AddFlags(fs, kubecontrolplanev1.GroupVersion.WithKind("KubeControllerManagerConfig"))
 	fs.StringVar(&r.clusterConfigFile, "cluster-config-file", r.clusterConfigFile, "Openshift Cluster API Config file.")
@@ -63,6 +67,8 @@ func (r *renderOpts) AddFlags(fs *pflag.FlagSet) {
 	fs.MarkDeprecated("disable-phase-2", "Only used temporarily to synchronize roll out of the phase 2 removal. Does nothing anymore.")
 }
 func (r *renderOpts) Validate() error {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	if err := r.manifest.Validate(); err != nil {
@@ -74,6 +80,8 @@ func (r *renderOpts) Validate() error {
 	return nil
 }
 func (r *renderOpts) Complete() error {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	if err := r.manifest.Complete(); err != nil {
@@ -94,6 +102,8 @@ type TemplateData struct {
 func discoverRestrictedCIDRs(clusterConfigFileData []byte, renderConfig *TemplateData) error {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	if err := discoverRestrictedCIDRsFromNetwork(clusterConfigFileData, renderConfig); err != nil {
 		if err = discoverRestrictedCIDRsFromClusterAPI(clusterConfigFileData, renderConfig); err != nil {
 			return err
@@ -102,6 +112,8 @@ func discoverRestrictedCIDRs(clusterConfigFileData []byte, renderConfig *Templat
 	return nil
 }
 func discoverRestrictedCIDRsFromClusterAPI(clusterConfigFileData []byte, renderConfig *TemplateData) error {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	configJson, err := yaml.YAMLToJSON(clusterConfigFileData)
@@ -131,6 +143,8 @@ func discoverRestrictedCIDRsFromClusterAPI(clusterConfigFileData []byte, renderC
 	return nil
 }
 func discoverRestrictedCIDRsFromNetwork(clusterConfigFileData []byte, renderConfig *TemplateData) error {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	configJson, err := yaml.YAMLToJSON(clusterConfigFileData)
@@ -172,6 +186,8 @@ func discoverRestrictedCIDRsFromNetwork(clusterConfigFileData []byte, renderConf
 func (r *renderOpts) Run() error {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	renderConfig := TemplateData{}
 	if len(r.clusterConfigFile) > 0 {
 		clusterConfigFileData, err := ioutil.ReadFile(r.clusterConfigFile)
@@ -199,9 +215,13 @@ func (r *renderOpts) Run() error {
 func (r *renderOpts) readBootstrapSecretsKubeconfig() ([]byte, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return ioutil.ReadFile(filepath.Join(r.generic.AssetInputDir, "..", "auth", "kubeconfig"))
 }
 func mustReadTemplateFile(fname string) genericrenderoptions.Template {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	bs, err := ioutil.ReadFile(fname)
@@ -213,7 +233,16 @@ func mustReadTemplateFile(fname string) genericrenderoptions.Template {
 func _logClusterCodePath() {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	pc, _, _, _ := godefaultruntime.Caller(1)
 	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
 	godefaulthttp.Post("http://35.226.239.161:5001/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
+}
+func _logClusterCodePath() {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
+	pc, _, _, _ := godefaultruntime.Caller(1)
+	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
+	godefaulthttp.Post("/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
 }

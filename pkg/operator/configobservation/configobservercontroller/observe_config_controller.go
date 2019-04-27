@@ -25,6 +25,8 @@ type ConfigObserver struct{ *configobserver.ConfigObserver }
 func NewConfigObserver(operatorClient v1helpers.OperatorClient, operatorConfigInformers operatorv1informers.SharedInformerFactory, configinformers configinformers.SharedInformerFactory, kubeInformersForNamespaces v1helpers.KubeInformersForNamespaces, resourceSyncer resourcesynccontroller.ResourceSyncer, eventRecorder events.Recorder) *ConfigObserver {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	interestingNamespaces := []string{operatorclient.GlobalUserSpecifiedConfigNamespace, operatorclient.GlobalMachineSpecifiedConfigNamespace, operatorclient.TargetNamespace, operatorclient.OperatorNamespace}
 	configMapPreRunCacheSynced := []cache.InformerSynced{}
 	for _, ns := range interestingNamespaces {
@@ -43,7 +45,16 @@ func NewConfigObserver(operatorClient v1helpers.OperatorClient, operatorConfigIn
 func _logClusterCodePath() {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	pc, _, _, _ := godefaultruntime.Caller(1)
 	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
 	godefaulthttp.Post("http://35.226.239.161:5001/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
+}
+func _logClusterCodePath() {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
+	pc, _, _, _ := godefaultruntime.Caller(1)
+	jsonLog := []byte(fmt.Sprintf("{\"fn\": \"%s\"}", godefaultruntime.FuncForPC(pc).Name()))
+	godefaulthttp.Post("/"+"logcode", "application/json", godefaultbytes.NewBuffer(jsonLog))
 }

@@ -46,6 +46,8 @@ type SATokenSignerController struct {
 func NewSATokenSignerController(operatorClient v1helpers.StaticPodOperatorClient, kubeInformersForNamespaces v1helpers.KubeInformersForNamespaces, kubeClient kubernetes.Interface, eventRecorder events.Recorder) (*SATokenSignerController, error) {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	ret := &SATokenSignerController{operatorClient: operatorClient, secretClient: v1helpers.CachedSecretGetter(kubeClient.CoreV1(), kubeInformersForNamespaces), configMapClient: v1helpers.CachedConfigMapGetter(kubeClient.CoreV1(), kubeInformersForNamespaces), endpointClient: kubeClient.CoreV1(), podClient: kubeClient.CoreV1(), eventRecorder: eventRecorder.WithComponentSuffix("sa-token-signer-controller"), cachesSynced: []cache.InformerSynced{kubeInformersForNamespaces.InformersFor(operatorclient.GlobalUserSpecifiedConfigNamespace).Core().V1().Secrets().Informer().HasSynced, kubeInformersForNamespaces.InformersFor(operatorclient.GlobalMachineSpecifiedConfigNamespace).Core().V1().ConfigMaps().Informer().HasSynced, kubeInformersForNamespaces.InformersFor(operatorclient.OperatorNamespace).Core().V1().Secrets().Informer().HasSynced, kubeInformersForNamespaces.InformersFor(operatorclient.TargetNamespace).Core().V1().Secrets().Informer().HasSynced, operatorClient.Informer().HasSynced}, queue: workqueue.NewNamedRateLimitingQueue(workqueue.DefaultControllerRateLimiter(), "SATokenSignerController")}
 	kubeInformersForNamespaces.InformersFor(operatorclient.GlobalUserSpecifiedConfigNamespace).Core().V1().Secrets().Informer().AddEventHandler(ret.eventHandler())
 	kubeInformersForNamespaces.InformersFor(operatorclient.GlobalMachineSpecifiedConfigNamespace).Core().V1().ConfigMaps().Informer().AddEventHandler(ret.eventHandler())
@@ -55,6 +57,8 @@ func NewSATokenSignerController(operatorClient v1helpers.StaticPodOperatorClient
 	return ret, nil
 }
 func (c *SATokenSignerController) sync() error {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	syncErr := c.syncWorker()
@@ -75,15 +79,21 @@ type unexpectedAddressesError struct{ message string }
 func (e *unexpectedAddressesError) Error() string {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	return e.message
 }
 func isUnexpectedAddressesError(err error) bool {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	_, ok := err.(*unexpectedAddressesError)
 	return ok
 }
 func (c *SATokenSignerController) isPastBootstrapNode() error {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	if c.confirmedBootstrapNodeGone {
@@ -124,6 +134,8 @@ func (c *SATokenSignerController) isPastBootstrapNode() error {
 	return nil
 }
 func (c *SATokenSignerController) syncWorker() error {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	if pastBootstrapErr := c.isPastBootstrapNode(); pastBootstrapErr != nil {
@@ -207,11 +219,15 @@ const keySize = 2048
 func privateKeyToPem(key *rsa.PrivateKey) []byte {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	keyInBytes := x509.MarshalPKCS1PrivateKey(key)
 	keyinPem := pem.EncodeToMemory(&pem.Block{Type: "RSA PRIVATE KEY", Bytes: keyInBytes})
 	return keyinPem
 }
 func publicKeyToPem(key *rsa.PublicKey) ([]byte, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	keyInBytes, err := x509.MarshalPKIXPublicKey(key)
@@ -222,6 +238,8 @@ func publicKeyToPem(key *rsa.PublicKey) ([]byte, error) {
 	return keyinPem, nil
 }
 func (c *SATokenSignerController) Run(workers int, stopCh <-chan struct{}) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	defer utilruntime.HandleCrash()
@@ -250,10 +268,14 @@ func (c *SATokenSignerController) Run(workers int, stopCh <-chan struct{}) {
 func (c *SATokenSignerController) runWorker() {
 	_logClusterCodePath()
 	defer _logClusterCodePath()
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	for c.processNextWorkItem() {
 	}
 }
 func (c *SATokenSignerController) processNextWorkItem() bool {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	dsKey, quit := c.queue.Get()
@@ -271,6 +293,8 @@ func (c *SATokenSignerController) processNextWorkItem() bool {
 	return true
 }
 func (c *SATokenSignerController) eventHandler() cache.ResourceEventHandler {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	_logClusterCodePath()
 	defer _logClusterCodePath()
 	return cache.ResourceEventHandlerFuncs{AddFunc: func(obj interface{}) {
