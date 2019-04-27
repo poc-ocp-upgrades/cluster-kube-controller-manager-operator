@@ -8,15 +8,14 @@ import (
 	"reflect"
 	"strings"
 	"testing"
-
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 )
 
 var (
-	expectedClusterCIDR = []string{"10.128.0.0/14"}
-	expectedServiceCIDR = []string{"172.30.0.0/16"}
-	clusterAPIConfig    = `
+	expectedClusterCIDR	= []string{"10.128.0.0/14"}
+	expectedServiceCIDR	= []string{"172.30.0.0/16"}
+	clusterAPIConfig	= `
 apiVersion: machine.openshift.io/v1beta1
 kind: Cluster
 metadata:
@@ -35,7 +34,7 @@ spec:
   providerSpec: {}
 status: {}
 `
-	networkConfig = `
+	networkConfig	= `
 apiVersion: config.openshift.io/v1
 kind: Network
 metadata:
@@ -53,6 +52,8 @@ status: {}
 )
 
 func runRender(args ...string) (*cobra.Command, error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	errOut := &bytes.Buffer{}
 	c := NewRenderCommand(errOut)
 	os.Args = append([]string{"render.test"}, args...)
@@ -68,8 +69,9 @@ func runRender(args ...string) (*cobra.Command, error) {
 	}
 	return c, errors.New(string(errBytes))
 }
-
 func setupAssetOutputDir(testName string) (teardown func(), outputDir string, err error) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	outputDir, err = ioutil.TempDir("", testName)
 	if err != nil {
 		return nil, "", err
@@ -85,8 +87,9 @@ func setupAssetOutputDir(testName string) (teardown func(), outputDir string, er
 	}
 	return
 }
-
 func setOutputFlags(args []string, dir string) []string {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	newArgs := []string{}
 	for _, arg := range args {
 		if strings.HasPrefix(arg, "--asset-output-dir=") {
@@ -101,47 +104,27 @@ func setOutputFlags(args []string, dir string) []string {
 	}
 	return newArgs
 }
-
 func TestRenderCommand(t *testing.T) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	assetsInputDir := filepath.Join("testdata", "tls")
 	templateDir := filepath.Join("..", "..", "..", "bindata", "bootkube")
-
 	tests := []struct {
-		name    string
-		args    []string
-		errFunc func(error)
-	}{
-		{
-			name: "no-flags",
-			args: []string{
-				"--templates-input-dir=" + templateDir,
-			},
-			errFunc: func(err error) {
-				if err == nil {
-					t.Fatalf("expected required flags error")
-				}
-			},
-		},
-		{
-			name: "happy-path",
-			args: []string{
-				"--asset-input-dir=" + assetsInputDir,
-				"--templates-input-dir=" + templateDir,
-				"--asset-output-dir=",
-				"--config-output-file=",
-			},
-		},
-	}
-
+		name	string
+		args	[]string
+		errFunc	func(error)
+	}{{name: "no-flags", args: []string{"--templates-input-dir=" + templateDir}, errFunc: func(err error) {
+		if err == nil {
+			t.Fatalf("expected required flags error")
+		}
+	}}, {name: "happy-path", args: []string{"--asset-input-dir=" + assetsInputDir, "--templates-input-dir=" + templateDir, "--asset-output-dir=", "--config-output-file="}}}
 	for _, test := range tests {
 		teardown, outputDir, err := setupAssetOutputDir(test.name)
 		if err != nil {
 			t.Errorf("%s: unexpected error: %v", test.name, err)
 		}
 		defer teardown()
-
 		test.args = setOutputFlags(test.args, outputDir)
-
 		_, err = runRender(test.args...)
 		if err != nil && test.errFunc == nil {
 			t.Errorf("%s: got unexpected error %v", test.name, err)
@@ -153,8 +136,9 @@ func TestRenderCommand(t *testing.T) {
 		}
 	}
 }
-
 func TestDiscoverRestrictedCIDRsFromNetwork(t *testing.T) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	renderConfig := TemplateData{}
 	if err := discoverRestrictedCIDRsFromNetwork([]byte(networkConfig), &renderConfig); err != nil {
 		t.Errorf("failed discoverCIDRs: %v", err)
@@ -166,8 +150,9 @@ func TestDiscoverRestrictedCIDRsFromNetwork(t *testing.T) {
 		t.Errorf("Got: %v, expected: %v", renderConfig.ServiceClusterIPRange, expectedServiceCIDR)
 	}
 }
-
 func TestDiscoverRestrictedCIDRsFromClusterAPI(t *testing.T) {
+	_logClusterCodePath()
+	defer _logClusterCodePath()
 	renderConfig := TemplateData{}
 	if err := discoverRestrictedCIDRsFromClusterAPI([]byte(clusterAPIConfig), &renderConfig); err != nil {
 		t.Errorf("failed discoverCIDRs: %v", err)
@@ -179,25 +164,15 @@ func TestDiscoverRestrictedCIDRsFromClusterAPI(t *testing.T) {
 		t.Errorf("Got: %v, expected: %v", renderConfig.ServiceClusterIPRange, expectedServiceCIDR)
 	}
 }
-
 func TestDiscoverRestrictedCIDRs(t *testing.T) {
-	testCase := []struct {
-		config []byte
-	}{
-		{
-			config: []byte(networkConfig),
-		},
-		{
-			config: []byte(clusterAPIConfig),
-		},
-	}
-
+	_logClusterCodePath()
+	defer _logClusterCodePath()
+	testCase := []struct{ config []byte }{{config: []byte(networkConfig)}, {config: []byte(clusterAPIConfig)}}
 	for _, tc := range testCase {
 		renderConfig := TemplateData{}
 		if err := discoverRestrictedCIDRs(tc.config, &renderConfig); err != nil {
 			t.Errorf("failed to discoverCIDRs: %v", err)
 		}
-
 		if !reflect.DeepEqual(renderConfig.ClusterCIDR, expectedClusterCIDR) {
 			t.Errorf("Got: %v, expected: %v", renderConfig.ClusterCIDR, expectedClusterCIDR)
 		}
